@@ -53,7 +53,7 @@ Error rate swept across K = 1 to 30, with the elbow marking the optimal value:
 ## Project structure
 
 ```
-Iris-Classification-KNN/
+iris-classification-knn/
 ├── iris_knn.py              # Main script — full pipeline, cell-marked (# %%)
 ├── notebooks/
 │   └── iris_knn.ipynb       # Same pipeline, notebook format
@@ -65,8 +65,8 @@ Iris-Classification-KNN/
 ## How to run
 
 ```bash
-git clone https://github.com/AbdullahAhmed04/Iris-Classification-KNN.git
-cd Iris-Classification-KNN
+git clone https://github.com/AbdullahAhmed04/iris-classification-knn.git
+cd iris-classification-knn
 pip install -r requirements.txt
 python iris_knn.py
 ```
