@@ -31,32 +31,48 @@ load, scale, split, train, tune, and evaluate.
 
 Pairwise feature relationships across the three species:
 
-![Iris Pairplot](outputs/iris_pairplot.png)
+![Iris Pairplot](outputs/iris_pairplot.PNG)
 
 ## Choosing K
 
 Error rate swept across K = 1 to 30, with the elbow marking the optimal value:
 
-![K Tuning Curve](outputs/k_tuning_curve.png)
+![K Tuning Curve](outputs/k_tuning_curve.PNG)
+
+For this dataset and split, the elbow method selected **K = 1**. On a
+dataset this small and well-separated it produces the lowest test error,
+though K = 1 is generally more sensitive to noise than a slightly higher K
+(e.g. 5–7) — worth keeping in mind if you validate against different seeds.
 
 ## Results
 
-- Accuracy: ~0.97–1.00 (exact value depends on random seed / split)
-- Macro F1: ~0.97–1.00
-- Best K: found via elbow method (typically 3–7 for this dataset)
-- Confusion matrix: near-perfect separation of Setosa; occasional overlap
-  between Versicolor and Virginica, which is expected — their petal
-  measurements are naturally close.
+- **Accuracy**: 0.9667
+- **Macro F1**: 0.9666
+- **Best K**: 1 (via elbow method)
 
-![Confusion Matrix](outputs/confusion_matrix.png)
+```
+              precision    recall  f1-score   support
+
+      setosa       1.00      1.00      1.00        10
+  versicolor       0.91      1.00      0.95        10
+   virginica       1.00      0.90      0.95        10
+
+    accuracy                           0.97        30
+   macro avg       0.97      0.97      0.97        30
+weighted avg       0.97      0.97      0.97        30
+```
+
+The confusion matrix below shows perfect separation of Setosa, with one
+Virginica sample misclassified as Versicolor — expected, since those two
+species overlap slightly in petal measurements.
+
+![Confusion Matrix](outputs/confusion_matrix.PNG)
 
 ## Project structure
 
 ```
 iris-classification-knn/
-├── iris_knn.py              # Main script — full pipeline, cell-marked (# %%)
-├── notebooks/
-│   └── iris_knn.ipynb       # Same pipeline, notebook format
+├── iris_knn.py              # Full pipeline: load, scale, split, tune, train, evaluate
 ├── outputs/                 # Generated plots
 ├── requirements.txt
 └── README.md
@@ -70,8 +86,6 @@ cd iris-classification-knn
 pip install -r requirements.txt
 python iris_knn.py
 ```
-
-Or open `notebooks/iris_knn.ipynb` in Jupyter/Kaggle/Colab and run all cells.
 
 ## Pipeline (IPO framework)
 
