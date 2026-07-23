@@ -31,13 +31,13 @@ load, scale, split, train, tune, and evaluate.
 
 Pairwise feature relationships across the three species:
 
-![Iris Pairplot](outputs/iris_pairplot.PNG)
+![Iris Pairplot](outputs/iris_pairplot.png)
 
 ## Choosing K
 
 Error rate swept across K = 1 to 30, with the elbow marking the optimal value:
 
-![K Tuning Curve](outputs/k_tuning_curve.PNG)
+![K Tuning Curve](outputs/k_tuning_curve.png)
 
 For this dataset and split, the elbow method selected **K = 1**. On a
 dataset this small and well-separated it produces the lowest test error,
@@ -66,7 +66,7 @@ The confusion matrix below shows perfect separation of Setosa, with one
 Virginica sample misclassified as Versicolor — expected, since those two
 species overlap slightly in petal measurements.
 
-![Confusion Matrix](outputs/confusion_matrix.PNG)
+![Confusion Matrix](outputs/confusion_matrix.png)
 
 ## Project structure
 
